@@ -12,7 +12,7 @@ body{
 
 .calculator{
     background-color: black;
-    margin-left: 400px;    
+    margin-left: 10vmin;    
     width: 500px;
     height: 700px;
     padding: 20px;
