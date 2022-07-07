@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body style="text-align: center;">
+    <h1> Calculator using callback function</h1>
+    <div id="cal" style="border: 5px solid black; display:block; position: absolute;margin-left: 70vmin;">
+
+        <input type="text" id="num1" placeholder="Enter first number" required>
+        <br><br>
+        <input type="text" id="num2" placeholder="Enter second number" required><br><br>
+        <div class="btn" style="display:grid; grid-template-columns: repeat(5,100px);">
+        <button name="ADD" value="1" class="operator">+</button>
+        <button name="SUB" value="2" class="operator">-</button>
+        <button name="PROD" value="3" class="operator">*</button>
+        <button name="DIV" value="4" class="operator">/</button>
+        <button name="REM" onclick="calc(calculator)">=</button>
+        </div><br>
+        Result:<div id="output">-</div>
+
+    </div>
+
+    <!--Script code for performing operations -->
+    <script>
+    var option;
+    //gets the operator
+    const buttons= document.querySelector(".btn");
+    buttons.addEventListener('click', (event)=>{
+            option= event.target.innerHTML;
+            console.log(option);
+    });
+
+    //function callback
+    function calc(callback){
+        var a = parseInt(document.getElementById("num1").value);
+        var b = parseInt(document.getElementById("num2").value);
+       
+        var result=callback(a,b);
+
+        document.getElementById("output").innerText=result;
+    }
+
+    //function to calculate 
+    function calculator(a,b){
+        var result;
+        
+        console.log(a,b,option);
+        switch(option){
+            case '+': result=a+b;
+                     break;
+            case '-': result=a-b;
+                    break;
+            case '*': result=a*b;
+                    break; 
+            case '/': result=a/b;
+                    break;
+            default: result=0;
+        }
+        return result;
+    }
+    </script>
+</body>
+</html>
